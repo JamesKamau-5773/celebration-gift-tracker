@@ -121,15 +121,15 @@ function addCelebration(event) {
     return el ? el.value : null;
   };
   
-//   // Get all the values from the form
-//    const values = {
-//     name: getValue('name'),
-//     date: getValue('celebrationDate'),
-//     location: getValue('location'),
-//     gift: getValue('gift'),
-//     cost: getValue('cost'),
-//     delivery: getValue('delivery')
-//   };
+  // Get all the values from the form
+   const values = {
+    name: getValue('name'),
+    date: getValue('celebrationDate'),
+    location: getValue('location'),
+    gift: getValue('gift'),
+    cost: getValue('cost'),
+    delivery: getValue('delivery')
+  };
 
 
 //   // Validate
