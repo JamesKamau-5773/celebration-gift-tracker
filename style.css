@@ -214,3 +214,34 @@ button:hover{
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
+footer{
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--light);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.stat-item {
+  text-align: center;
+  margin-bottom:10px;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+} 
