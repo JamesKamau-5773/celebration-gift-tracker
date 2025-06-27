@@ -34,3 +34,117 @@ body {
   margin: 0 auto;
 }
 
+header {
+  text-align:center;
+  padding:30px;
+  margin-bottom:30px;
+  background: linear-gradient(to right, var(---primary), var(--secondary));
+  border-radius: 15px;
+  color:rgb(187, 52, 42);
+  box-shadow: 0 5px 15px var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+
+header::before{
+  content:"";
+  position:absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 70%, rgba(255,255,255,0) 70%);
+  transform: rotate(30deg);
+}
+
+.fa-gifts{
+  color:rgb(187, 52, 42);
+  margin-right:5px;
+}
+
+header h1{
+  font-size:2.8rem;
+  margin-bottom: 10px;
+  position:relative;
+  color: rgb(25, 51, 168);
+}
+
+header p{
+  font-size:1.2rem;
+  max-width:700px;
+  margin:0 auto;
+  position: relative;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--accent);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  
+  
+}
+
+ 
+
+.form-section{
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px var(--shadow);
+}
+
+.list-section{
+
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px var(--shadow);
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+h2{
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--secondary);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h2 i{
+  color: var(--accent);
+}
+
+.form-group{
+   margin-bottom: 30px;
+
+}
+
+label{
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+input,select,textarea{
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e1e5eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
