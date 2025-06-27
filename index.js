@@ -1,18 +1,19 @@
-// // 1. Set up our main variables
-// const BASE_URL = "https://challange-json-server.onrender.com/celebrations";
-// let celebrations = []; // This will store all our celebrations
+// 1. Set up our main variables
+const BASE_URL = "https://challange-json-server.onrender.com/celebrations";
+
+let celebrations = []; // This will store all our celebrations
 
 
-// // if (!celebrationsForm || !searchBox) {
-// //   console.error("Couldn't find form or search box!");
-// //   console.log("Form element:", celebrationsForm);
-// //   console.log("Search box:", searchBox);
-// //   return;
-// // }
-// // 2. Get all the HTML elements we need
-// const form = document.getElementById("celebrationForm");
-// const celebrationList = document.getElementById("celebration-list");
-// const searchInput = document.getElementById("searchInput");
+if (!celebrationsForm || !searchBox) {
+  console.error("Couldn't find form or search box!");
+  console.log("Form element:", celebrationsForm);
+  console.log("Search box:", searchBox);
+  return;
+}
+// 2. Get all the HTML elements we need
+const form = document.getElementById("celebrationForm");
+const celebrationList = document.getElementById("celebration-list");
+const searchInput = document.getElementById("searchInput");
 
 // // 3. When the page loads, load the celebrations
 // window.addEventListener("load", function() {
