@@ -32,6 +32,49 @@
       <div class = "stat-label">Total Cost</div>
     </div>
 
+    <div class="stat-item">
+      <div class = "stat-value" id = "readyPercentage">0%</div>
+      <div class = "stat-label">Gifts Ready</div>
+    </div>
+
+    <div class = "app-container">
+      <div class = "form-section">
+        <h2> 🎉 Add a Cherished Celebration </h2>
+
+        <form id = "celebrationForm">
+          <div class = "form-group">
+            <label for = "name" >  Name </label>
+            <input type = "text" id = 'name' placeholder="Enter name" required>
+          </div>
+
+          
+            <div class="form-group">
+              <label for = "celebrationDate">Celebration Date</label>
+              <input type = "date" id = "celebrationDate" required>
+            </div>
+          
+
+          <div class = "form-group" >
+            <label for = "relationship" >Relationship</label>
+            <select id = "relationship" aria-label="Select relationship type">
+              <option value = "" disabled selected>Select relationship...</option>
+              <option value = "family">Family</option>
+              <option value = "friends">Friends</option>
+              <option value = "colleague">Colleague</option>
+            </select>
+          </div>
+
+          <div class = "form-group">
+            <label for = "gift">Gift idea</label>
+            <input type = "text" id = "gift" placeholder = "What would make them smile?" required >
+          </div>
+
+        
+
+  <footer>
+    <p>Advanced Celebration Tracker © 2025 | Never miss a birthday or anniversary again!</p>
+  </footer>
+
   <script type = "module" src="./index.js"></script>
 </body>
 </html>
