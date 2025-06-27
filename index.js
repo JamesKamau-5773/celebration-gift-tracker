@@ -7,7 +7,7 @@ let celebrations = []; // This will store all our celebrations
 if (!celebrationsForm || !searchBox) {
   console.error("Couldn't find form or search box!");
   console.log("Form element:", celebrationsForm);
-  console.log("Search box:", searchBox);
+  console.log("Search input:", searchInput);
   return;
 }
 // 2. Get all the HTML elements we need
@@ -15,30 +15,30 @@ const form = document.getElementById("celebrationForm");
 const celebrationList = document.getElementById("celebration-list");
 const searchInput = document.getElementById("searchInput");
 
-// // 3. When the page loads, load the celebrations
-// window.addEventListener("load", function() {
-//   loadCelebrations();
+// 3. When the page loads, load the celebrations
+window.addEventListener("load", function() {
+  loadCelebrations();
   
-//   // Set up our event listeners
-//   form.addEventListener("submit", function(e){
-//     e.preventDefault();
-//      addCelebration(e);
-//   });
-//   // searchBox.addEventListener("input", searchCelebrations);
-// });
+  // Set up our event listeners
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+     addCelebration(e);
+  });
+  // searchBox.addEventListener("input", searchCelebrations);
+});
 
-// // 4. Function to load celebrations from the server
-// function loadCelebrations() {
-//   fetch(BASE_URL)
-//     .then(response => response.json())
-//     .then(data => {
-//       celebrations = data;
-//       showAllCelebrations(celebrations);
-//     })
-//     .catch(error => {
-//       console.log("Oops, something went wrong:", error);
-//     });
-// }
+// 4. Function to load celebrations from the server
+function loadCelebrations() {
+  fetch(BASE_URL)
+    .then(response => response.json())
+    .then(data => {
+      celebrations = data;
+      showAllCelebrations(celebrations);
+    })
+    .catch(error => {
+      console.log("Oops, something went wrong:", error);
+    });
+}
 
 // // 5. Function to display all celebrations
 // function showAllCelebrations(celebrationsToShow) {
