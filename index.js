@@ -172,21 +172,21 @@ function addCelebration(event) {
     });
 }
 
-// // 8. Function to delete a celebration
-// function deleteCelebration(id) {
-//   // Send delete request to server
-//   fetch(`${BASE_URL}/${id}`, {
-//     method: "DELETE"
-//   })
-//     .then(() => {
-//       // Remove from our local list
-//       celebrations = celebrations.filter(celebration => celebration.id !== id);
-//       showAllCelebrations(celebrations);
-//     })
-//     .catch(error => {
-//       console.log("Error deleting celebration:", error);
-//     });
-// }
+// 8. Function to delete a celebration
+function deleteCelebration(id) {
+  // Send delete request to server
+  fetch(`${BASE_URL}/${id}`, {
+    method: "DELETE"
+  })
+    .then(() => {
+      // Remove from our local list
+      celebrations = celebrations.filter(celebration => celebration.id !== id);
+      showAllCelebrations(celebrations);
+    })
+    .catch(error => {
+      console.log("Error deleting celebration:", error);
+    });
+}
 
 // // 9. Function to search celebrations
 // function searchCelebrations() {
