@@ -40,55 +40,55 @@ function loadCelebrations() {
     });
 }
 
-// // 5. Function to display all celebrations
-// function showAllCelebrations(celebrationsToShow) {
-//   // Clear the current list
-//   celebrationList.innerHTML = "";
+// 5. Function to display all celebrations
+function showAllCelebrations(celebrationsToShow) {
+  // Clear the current list
+  celebrationList.innerHTML = "";
 
-//   // If there are no celebrations, show a message
-//   if (celebrationsToShow.length === 0) {
-//     celebrationList.innerHTML = `
-//       <div class="empty-message">
-//         <p>No celebrations found</p>
-//         <p>Add your first celebration!</p>
-//       </div>
-//     `;
-//     return;
-//   }
+  // If there are no celebrations, show a message
+  if (celebrationsToShow.length === 0) {
+    celebrationList.innerHTML = `
+      <div class="empty-message">
+        <p>No celebrations found</p>
+        <p>Add your first celebration!</p>
+      </div>
+    `;
+    return;
+  }
 
-//   // Add each celebration to the list
-//   celebrationsToShow.forEach(celebration => {
-//     const celebrationItem = createCelebrationItem(celebration);
-//     celebrationList.appendChild(celebrationItem);
-//   });
-// }
+  // Add each celebration to the list
+  celebrationsToShow.forEach(celebration => {
+    const celebrationItem = createCelebrationItem(celebration);
+    celebrationList.appendChild(celebrationItem);
+  });
+}
 
-// // 6. Function to create HTML for one celebration
-// function createCelebrationItem(celebration) {
-//   const item = document.createElement("li");
+// 6. Function to create HTML for one celebration
+function createCelebrationItem(celebration) {
+  const item = document.createElement("li");
   
-//   // Check if this celebration is coming up soon (within 7 days)
-//   const today = new Date();
-//   const eventDate = new Date(celebration.celebrationDate);
+  // Check if this celebration is coming up soon (within 7 days)
+  const today = new Date();
+  const eventDate = new Date(celebration.celebrationDate);
   
-//   // Make sure we only compare dates (not times)
-//   today.setHours(0, 0, 0, 0);
-//   eventDate.setHours(0, 0, 0, 0);
+  // Make sure we only compare dates (not times)
+  today.setHours(0, 0, 0, 0);
+  eventDate.setHours(0, 0, 0, 0);
   
-//   // Calculate days difference
-//   const daysDifference = Math.floor((eventDate - today) / (1000 * 60 * 60 * 24));
+  // Calculate days difference
+  const daysDifference = Math.floor((eventDate - today) / (1000 * 60 * 60 * 24));
   
-//   // If it's coming up in the next week, highlight it
-//   if (daysDifference >= 0 && daysDifference <= 7) {
-//     item.classList.add("upcoming");
-//   }
+  // If it's coming up in the next week, highlight it
+  if (daysDifference >= 0 && daysDifference <= 7) {
+    item.classList.add("upcoming");
+  }
 
-//   // Format the date nicely
-//   const niceDate = eventDate.toLocaleDateString("en-US", {
-//     year: "numeric",
-//     month: "long",
-//     day: "numeric"
-//   });
+  // Format the date nicely
+  const niceDate = eventDate.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
 
 //   // Create the HTML for this celebration
 //   item.innerHTML = `
