@@ -90,36 +90,36 @@ function createCelebrationItem(celebration) {
     day: "numeric"
   });
 
-//   // Create the HTML for this celebration
-//   item.innerHTML = `
-//     <div class="celebration-details">
-//       <h3>${celebration.name}</h3>
-//       <p><strong>Date:</strong> ${niceDate}</p>
-//       <p><strong>Where:</strong> ${celebration.location}</p>
-//       <p><strong>Gift:</strong> ${celebration.gift} ($${celebration.cost})</p>
-//       <p><strong>Delivery:</strong> ${celebration.delivery}</p>
-//     </div>
-//     <button class="delete-btn" data-id="${celebration.id}">Delete</button>
-//   `;
+  // Create the HTML for this celebration
+  item.innerHTML = `
+    <div class="celebration-details">
+      <h3>${celebration.name}</h3>
+      <p><strong>Date:</strong> ${niceDate}</p>
+      <p><strong>Where:</strong> ${celebration.location}</p>
+      <p><strong>Gift:</strong> ${celebration.gift} ($${celebration.cost})</p>
+      <p><strong>Delivery:</strong> ${celebration.delivery}</p>
+    </div>
+    <button class="delete-btn" data-id="${celebration.id}">Delete</button>
+  `;
 
-//   // Add click event to the delete button
-//   const deleteBtn = item.querySelector(".delete-btn");
-//   deleteBtn.addEventListener("click", function() {
-//     deleteCelebration(celebration.id);
-//   });
+  // Add click event to the delete button
+  const deleteBtn = item.querySelector(".delete-btn");
+  deleteBtn.addEventListener("click", function() {
+    deleteCelebration(celebration.id);
+  });
 
-//   return item;
-// }
+  return item;
+}
 
-// // 7. Function to add a new celebration
-// function addCelebration(event) {
-//   event.preventDefault(); // Stop the form from refreshing the page
+// 7. Function to add a new celebration
+function addCelebration(event) {
+  event.preventDefault(); // Stop the form from refreshing the page
 
-//   // Helper function to safely get values
-//   const getValue = (id) => {
-//     const el = document.getElementById(id);
-//     return el ? el.value : null;
-//   };
+  // Helper function to safely get values
+  const getValue = (id) => {
+    const el = document.getElementById(id);
+    return el ? el.value : null;
+  };
   
 //   // Get all the values from the form
 //    const values = {
