@@ -188,13 +188,13 @@ function deleteCelebration(id) {
     });
 }
 
-// // 9. Function to search celebrations
-// function searchCelebrations() {
-//   const searchText = searchBox.value.toLowerCase();
+// 9. Function to search celebrations
+function searchCelebrations() {
+  const searchText = searchBox.value.toLowerCase();
   
-//   const filtered = celebrations.filter(celebration => {
-//     return celebration.name.toLowerCase().includes(searchText);
-//   });
+  const filtered = celebrations.filter(celebration => {
+    return celebration.name.toLowerCase().includes(searchText);
+  });
   
-//   showAllCelebrations(filtered);
-// }
+  showAllCelebrations(filtered);
+}
