@@ -257,7 +257,7 @@ function showNotification(message, type = 'info') {
     
       showAllCelebrations(celebrations);
     })
-    
+
     .catch(error => {
     
       console.log("Error deleting celebration:", error);
@@ -276,3 +276,4 @@ function showNotification(message, type = 'info') {
   
   showAllCelebrations(filtered);
 }
+
