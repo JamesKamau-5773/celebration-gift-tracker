@@ -1,28 +1,29 @@
 // 1. Set up our main variables
-  const BASE_URL = "https://challange-json-server.onrender.com/celebrations";
+    const BASE_URL = "https://challange-json-server.onrender.com/celebrations";
 
 // This will store all our celebrations
     let celebrations = []; 
 
-
-    if (!celebrationsForm || !searchInput) {
-      console.error("Couldn't find form or search box!");
-
-      console.log("Form element:", celebrationsForm);
-
-      console.log("Search input:", searchInput);
-
-      return;
-    }
-
 // 2. Get all the HTML elements we need
-    const form = document.getElementById("celebrationForm");
+      const form = document.getElementById("celebrationForm");
 
-    const celebrationList = document.getElementById("celebration-list");
+      const celebrationList = document.getElementById("celebration-list");
 
-    const searchInput = document.getElementById("searchInput");
+      const searchInput = document.getElementById("searchInput");
+ 
+ 
+    // function initApp() {
 
+    //   if (!celebrationsForm || !searchInput) {
 
+    //   console.error("Couldn't find form or search input!");
+
+    //   return; 
+    // }
+  
+  // }
+  // initApp();
+    
 // 3. When the page loads, load the celebrations
     window.addEventListener("load", function() {
       loadCelebrations();
@@ -153,93 +154,93 @@
 }
 
 // 7. Function to add a new celebration
-  function addCelebration(event) {
+  async function addCelebration(event) {
+  event.preventDefault();
 
-  event.preventDefault(); // Stop the form from refreshing the page
+  // Get form values
+  const getValue = (id) => document.getElementById(id)?.value;
 
-
-  // Helper function to safely get values
-  const getValue = (id) => {
-
-    const el = document.getElementById(id);
-
-    return el ? el.value : null;
-  };
-  
-  // Get all the values from the form
-   const values = {
-
+  const values = {
     name: getValue('name'),
 
-    date: getValue('celebrationDate'),
-
+    celebrationDate: getValue('celebrationDate'),
+    
     location: getValue('location'),
 
     gift: getValue('gift'),
 
-    cost: getValue('cost'),
+    cost: parseFloat(getValue('cost')) || 0,
 
-    delivery: getValue('delivery')
+    delivery: getValue('delivery'),
+
+    status: getValue('status'),
+
+    notes: getValue('notes')
   };
 
+  
 
-  // Validate
-  if (Object.values(values).some(v => !v)) {
+  try {
+    // Show loading state
+    const submitBtn = event.target.querySelector('button[type="submit"]');
 
-    alert('Please fill all fields!');
+    submitBtn.disabled = true;
 
-    return;
-  }
+    submitBtn.innerHTML = '<span class="loading-spinner"></span> Adding...';
 
-  // Create the new celebration object
-  const newCelebration = {
-    
-    name: values.name,
-    
-    celebrationDate: values.date,
+    // POST to server
+    const response = await fetch(BASE_URL, {
+      method: "POST",
 
-    location: values.location,
+      headers: {
+        "Content-Type": "application/json"
+      },
 
-    gift: values.gift,
-
-    cost: parseFloat(values.cost),
-
-    delivery: values.delivery
-
-    
-  };
-
-
-  // Send it to the server
-  fetch(BASE_URL, {
-
-    method: "POST",
-
-    headers: {
-      "Content-Type": "application/json"
-    },
-
-    body: JSON.stringify(newCelebration)
-  })
-    .then(response => response.json())
-    
-    .then(data => {
-    
-  // Add the new celebration to our list
-    celebrations.push(data);
-    
-    showAllCelebrations(celebrations);
-      
-    
-    // Reset the form
-      form.reset();
-    })
-    
-    .catch(error => {
-    
-      console.log("Error adding celebration:", error);
+      body: JSON.stringify(values)
     });
+
+    if (!response.ok) throw new Error('Failed to save celebration');
+
+    const newCelebration = await response.json();
+
+    // Update local state
+    celebrations.push(newCelebration);
+
+    showAllCelebrations(celebrations);
+
+    form.reset();
+
+    // Show success notification
+    showNotification('Celebration added successfully!', 'success');
+
+  } catch (error) {
+    console.error("Error adding celebration:", error);
+
+    showNotification('Failed to add celebration', 'error');
+
+  } finally {
+    // Reset button state
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+
+    submitBtn.disabled = false;
+
+    submitBtn.textContent = 'Add celebration';
   }
+}
+
+// Helper function to show notifications
+function showNotification(message, type = 'info') {
+  const notification = document.createElement('div');
+
+  notification.className = `notification ${type}`;
+
+  notification.textContent = message;
+  
+  document.getElementById('notificationContent').appendChild(notification);
+
+  setTimeout(() => notification.remove(), 3000);
+}
+  
 
 // 8. Function to delete a celebration
   function deleteCelebration(id) {
@@ -256,6 +257,7 @@
     
       showAllCelebrations(celebrations);
     })
+    
     .catch(error => {
     
       console.log("Error deleting celebration:", error);
