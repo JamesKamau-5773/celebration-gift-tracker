@@ -132,23 +132,23 @@ function addCelebration(event) {
   };
 
 
-//   // Validate
-//   if (Object.values(values).some(v => !v)) {
-//     alert('Please fill all fields!');
-//     return;
-//   }
+  // Validate
+  if (Object.values(values).some(v => !v)) {
+    alert('Please fill all fields!');
+    return;
+  }
 
-//   // Create the new celebration object
-//   const newCelebration = {
-//     name: values.name,
-//     celebrationDate: values.date,
-//     location: values.location,
-//     gift: values.gift,
-//     cost: parseFloat(values.cost),
-//     delivery: values.delivery
+  // Create the new celebration object
+  const newCelebration = {
+    name: values.name,
+    celebrationDate: values.date,
+    location: values.location,
+    gift: values.gift,
+    cost: parseFloat(values.cost),
+    delivery: values.delivery
 
     
-//   };
+  };
 
 //   // Send it to the server
 //   fetch(BASE_URL, {
