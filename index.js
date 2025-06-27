@@ -150,27 +150,27 @@ function addCelebration(event) {
     
   };
 
-//   // Send it to the server
-//   fetch(BASE_URL, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify(newCelebration)
-//   })
-//     .then(response => response.json())
-//     .then(data => {
-//       // Add the new celebration to our list
-//       celebrations.push(data);
-//       showAllCelebrations(celebrations);
+  // Send it to the server
+  fetch(BASE_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newCelebration)
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Add the new celebration to our list
+      celebrations.push(data);
+      showAllCelebrations(celebrations);
       
-//       // Reset the form
-//       form.reset();
-//     })
-//     .catch(error => {
-//       console.log("Error adding celebration:", error);
-//     });
-// }
+      // Reset the form
+      form.reset();
+    })
+    .catch(error => {
+      console.log("Error adding celebration:", error);
+    });
+}
 
 // // 8. Function to delete a celebration
 // function deleteCelebration(id) {
