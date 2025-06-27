@@ -10,7 +10,7 @@ This application helps users manage important celebrations by tracking dates, gi
 
 ## Screenshot
 
-![Celebration Tracker Screenshot](/home/james/Pictures/Screenshots/Screenshot from 2025-06-27 20-37-38.png)
+![Celebration Gift Tracker Interface](./assets/screenshots/app-screenshot.png)
 
 ## Features
 
